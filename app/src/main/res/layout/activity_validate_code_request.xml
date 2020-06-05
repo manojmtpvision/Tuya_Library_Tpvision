@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0E5085"
+    android:orientation="vertical">
+
+    <!--    <include-->
+    <!--        android:id="@+id/action_bar_layout"-->
+    <!--        layout="@layout/toolbar_top_view"/>-->
+    <LinearLayout
+        android:id="@+id/tool"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="#8A00BCD4"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/white_back_arrow"></ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="35dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Enter verification code"
+
+                android:textSize="20dp"></TextView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_validate_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tool"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/mg_20"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/normal_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_validate_tip"
+        android:layout_centerHorizontal="true"
+        android:textColor="#FFF"
+        android:text="PLease check and enter the code below"
+        android:layout_marginTop="@dimen/mg_20"
+        android:gravity="center_horizontal" />
+
+
+    <RelativeLayout
+        android:id="@+id/rl_validate"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/phone_button_height"
+        android:visibility="gone"
+
+        android:layout_below="@id/normal_text"
+        android:layout_marginLeft="@dimen/phone_button_margin_left"
+        android:layout_marginTop="@dimen/verification_phone_button_margin_top"
+        android:layout_marginRight="@dimen/phone_button_margin_right"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/validate_code"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="@dimen/mg_10"
+            android:background="@drawable/bg_white_round"
+            android:gravity="center|left"
+            android:hint="@string/input_verification_code"
+            android:inputType="none"
+            android:paddingLeft="@dimen/phone_button_padding_left"
+            android:singleLine="true"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_hint_color"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/phone_button_text_size" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_password"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:visibility="gone"
+        android:layout_below="@+id/rl_validate"
+        android:layout_marginLeft="@dimen/mg_15"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="@dimen/mg_15"
+        android:background="@drawable/bg_white_round">
+
+        <EditText
+            android:id="@+id/et_password"
+            style="@style/edit_text_input"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/mg_16"
+            android:layout_toLeftOf="@+id/bt_password_switch"
+            android:layout_toRightOf="@+id/iv_password"
+            android:hint="@string/please_input_password"
+            android:imeOptions="actionDone"
+            android:inputType="textVisiblePassword"
+            android:textColorHint="#9b9b9b"
+            android:textSize="15sp" />
+
+        <ImageButton
+            android:id="@+id/bt_password_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/mg_5"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/mg_5"
+            android:paddingRight="@dimen/mg_5"
+            android:scaleType="centerInside"
+            android:src="@drawable/ty_password_on" />
+    </RelativeLayout>
+
+    <in.aabhasjindal.otptextview.OtpTextView
+        android:id="@+id/otp_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_password"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        app:bar_enabled="true"
+        app:bar_height="2dp"
+        app:height="40dp"
+        app:length="6"
+        app:otp=""
+        app:otp_text_size="24dp"
+        app:width="40dp" />
+
+    <Button
+        android:id="@+id/bt_confirm"
+        android:background="@drawable/button_white_background_roundcurves"
+        android:layout_width="160dp"
+        android:layout_height="@dimen/phone_button_height"
+        android:layout_below="@id/otp_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="#A9000000"
+        android:text="Done" />
+
+    <TextView
+        android:id="@+id/get_validate_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_confirm"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textColor="#8A00BCD4"
+        android:textSize="20dp"
+        android:text="Resend" />
+
+
+</RelativeLayout>
