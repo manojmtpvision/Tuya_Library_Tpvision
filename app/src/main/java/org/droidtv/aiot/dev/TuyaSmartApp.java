@@ -9,6 +9,7 @@ import android.content.Intent;
 import androidx.multidex.MultiDex;
 import androidx.multidex.MultiDexApplication;
 
+import com.tpvision.tuya_library_module.Tuya_methods;
 import com.tuya.smart.android.base.TuyaSmartSdk;
 import com.tuya.smart.android.common.utils.L;
 import org.droidtv.aiot.dev.login.activity.LoginActivity;

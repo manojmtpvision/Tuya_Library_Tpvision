@@ -170,4 +170,5 @@ dependencies {
 
 
     implementation 'org.slf4j:slf4j-nop:1.7.26'
+    implementation project(path: ':tuya_library_module')
 }

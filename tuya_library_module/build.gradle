@@ -27,6 +27,23 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.tuya.smart:tuyasmart-camera-panel-sdk:1.0.1'
+
+    //涂鸦公版SDK
+    implementation 'com.tuya.smart:tuyasmart:3.13.0'
+    implementation "com.tuya.smart:tuyasmart-TuyaRNApi:5.22.54-open"
+    implementation 'com.tuya.smart:panel-sdk:0.4.0'
+    implementation 'com.tuya.smart:tuyasmart-imagepipeline-okhttp3:0.0.1'
+
+    implementation 'com.tuya.smart:tuyasmart-webcontainer:3.12.6r125-h1'
+    implementation 'com.tuya.smart:tuyasmart-appshell:3.10.0'
+    //此处上传头像需要
+    implementation 'com.tuya.smart:tuyasmart-rpc:3.12.0r123'
+    //图片预览
+    implementation 'com.tuya.smart:tuyasmart-video:3.12.6r125'
+
+    implementation 'com.tuya.android.module:tymodule-annotation:0.0.7.2'
+    implementation 'com.tuya.smart:tuyasmart-wkvideoplayer:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
