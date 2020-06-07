@@ -25,6 +25,11 @@ import static com.tuya.smart.camera.utils.IntentUtils.startActivity;
 public class Tuya_methods {
     protected static Login_interface login_interface;
 
+    public Tuya_methods(Login_interface login_interface){
+        this.login_interface=login_interface;
+
+    }
+
     //Application class
     public static <T> void application_class(final Class<T> className, Context context) {
         TuyaSmartNetWork.mNTY = false;
@@ -50,13 +55,11 @@ public class Tuya_methods {
 
 
 //Login
-    public static void loginWithPhonePassword(String countrycode, String username, String password,Login_interface login_interface) {
-        login_interface=login_interface;
+    public static void loginWithPhonePassword(String countrycode, String username, String password) {
         TuyaHomeSdk.getUserInstance().loginWithPhonePassword(countrycode, username, password, mLoginCallback);
     }
 
-    public static void loginWithEmail(String countrycode, String username, String password,Login_interface login_interface) {
-        login_interface=login_interface;
+    public static void loginWithEmail(String countrycode, String username, String password) {
         TuyaHomeSdk.getUserInstance().loginWithEmail(countrycode, username, password, mLoginCallback);
     }
 
