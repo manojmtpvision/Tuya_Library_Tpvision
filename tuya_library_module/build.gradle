@@ -41,6 +41,8 @@ dependencies {
     implementation 'com.tuya.smart:tuyasmart-rpc:3.12.0r123'
     //图片预览
     implementation 'com.tuya.smart:tuyasmart-video:3.12.6r125'
+    implementation 'com.alibaba:fastjson:1.1.67.android'
+
 
     implementation 'com.tuya.android.module:tymodule-annotation:0.0.7.2'
     implementation 'com.tuya.smart:tuyasmart-wkvideoplayer:1.0.0'

@@ -68,7 +68,11 @@ public class FamilyManager {
 
 
     public HomeBean getCurrentHome() {
+        Log.d("Results","getCurrentHome called");
+
         if (null == currentHomeBean) {
+            Log.d("Results","mFamilySpHelper called");
+
             setCurrentHome(mFamilySpHelper.getCurrentHome());
         }
         return currentHomeBean;
@@ -76,6 +80,7 @@ public class FamilyManager {
 
 
     public long getCurrentHomeId() {
+        Log.d("Results","getCurrentHomeId called");
         HomeBean currentHome = getCurrentHome();
         if (null == currentHome) {
             return -1;

@@ -56,15 +56,15 @@ public class Testing_Activity extends AppCompatActivity implements Login_interfa
 //        }
     }
 
+
+
     @Override
-    public void success(User user) {
-        Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+    public void login_success(User user) {
+
     }
 
     @Override
-    public void error(String s, String s1) {
-        Toast.makeText(getApplicationContext(), "Bad", Toast.LENGTH_LONG).show();
-
+    public void login_error(String s, String s1) {
 
     }
 }

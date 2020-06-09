@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Message;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.tuya.smart.android.common.utils.L;
@@ -62,6 +63,7 @@ public class ECBindPresenter extends BasePresenter {
     }
 
     private void getTokenForConfigDevice() {
+        Log.d("Results","getTokenForConfigDevice called");
         ProgressUtil.showLoading(mContext, R.string.loading);
         long homeId = FamilyManager.getInstance().getCurrentHomeId();
         TuyaHomeSdk.getActivatorInstance().getActivatorToken(homeId, new ITuyaActivatorGetToken() {
