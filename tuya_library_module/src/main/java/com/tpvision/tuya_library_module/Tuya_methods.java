@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Message;
 import android.text.TextUtils;
@@ -43,6 +44,7 @@ import org.cybergarage.upnp.device.ST;
 
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
 import static com.tuya.smart.camera.utils.IntentUtils.startActivity;
 import static com.tuya.smart.sdk.enums.ActivatorModelEnum.TY_EZ;
 
@@ -367,6 +369,7 @@ public class Tuya_methods {
                 }
                 final long homeId = homeBeans.get(0).getHomeId();
                 HOME_ID = homeId;
+
                 TuyaHomeSdk.newHomeInstance(homeId).getHomeDetail(new ITuyaHomeResultCallback() {
                     @Override
                     public void onSuccess(HomeBean bean) {
