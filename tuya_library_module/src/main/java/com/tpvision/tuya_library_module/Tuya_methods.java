@@ -128,7 +128,7 @@ public class Tuya_methods {
         TuyaSdk.setDebugMode(true);
         TuyaWrapper.init((Application) context);
         TuyaCameraPanelSDK.init((Application) context);
-        TuyaPanelSDK.init((Application) context, TuyaSmartSdk.getAppkey(), TuyaSmartSdk.getAppSecret());
+        TuyaPanelSDK.init((Application) context, "5vpadpjdykpj93jngge7", "qkcqraaqx9wa88wppd9rtvcq8vhnja4t");
 
     }
     //Application class
