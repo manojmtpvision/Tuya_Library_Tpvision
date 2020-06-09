@@ -8,7 +8,7 @@ public class Tuya_methods_Login {
     protected static Login_interface login_interface;
 
 
-    public Tuya_methods_Login(){
+    public Tuya_methods_Login(Login_interface login_interface){
         this.login_interface = login_interface;
 
     }
