@@ -5,7 +5,7 @@ import com.tuya.smart.android.user.bean.User;
 import com.tuya.smart.home.sdk.TuyaHomeSdk;
 
 public class Tuya_methods_send_valid_code_email {
-    private static  Code_valid_Phone_or_Email code_valid_phone_or_email;
+    private static Code_valid_Phone_or_Email code_valid_phone_or_email;
 
     public Tuya_methods_send_valid_code_email(Code_valid_Phone_or_Email code_valid_phone_or_email){
         this.code_valid_phone_or_email=code_valid_phone_or_email;

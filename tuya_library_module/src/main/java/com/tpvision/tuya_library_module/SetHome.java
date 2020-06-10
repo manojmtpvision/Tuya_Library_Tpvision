@@ -13,6 +13,11 @@ public class SetHome {
     static String userId;
     static String json;
     private static String tokens;
+    static Get_Token_Interface get_token_interface;
+    public SetHome(Get_Token_Interface get_token_interface){
+        this.get_token_interface=get_token_interface;
+
+    }
 
     public static void setcurrenthome(HomeBean homeBean) {
         long targetHomeId = homeBean.getHomeId();
@@ -55,19 +60,25 @@ public class SetHome {
             @Override
             public void onSuccess(String token) {
                 initConfigDevice(token);
+                get_token_interface.get_token_onSuccess(token);
 
             }
 
             @Override
             public void onFailure(String s, String s1) {
+                get_token_interface.get_token_onFailure(s,s1);
 
             }
         });
     }
 
-    private static String initConfigDevice(String token) {
-        tokens = token;
+    public static String getTokens() {
         return tokens;
+    }
+
+    private static void initConfigDevice(String token) {
+        tokens = token;
+//        return tokens;
     }
 
     private static long getCurrentHomeId() {

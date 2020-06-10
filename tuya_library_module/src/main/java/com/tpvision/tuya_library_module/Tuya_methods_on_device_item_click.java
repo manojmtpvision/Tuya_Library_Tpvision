@@ -18,23 +18,32 @@ import com.tuya.smart.sdk.bean.DeviceBean;
 import static android.content.Context.MODE_PRIVATE;
 
 public class Tuya_methods_on_device_item_click {
-    Context context;
-    public Tuya_methods_on_device_item_click(Context context){
+    static Context context;
+    static Panel_interface panel_interface;
+    public Tuya_methods_on_device_item_click(Context context, Panel_interface panel_interface){
         this.context=context;
+        this.panel_interface=panel_interface;
     }
-    public static void onDeviceClick(DeviceBean deviceBean, Context context) {
+    public static void onDeviceClick(DeviceBean deviceBean) {
         if (!deviceBean.getIsOnline()) {
 //            showDevIsNotOnlineTip(deviceBean);
+            Log.d("results","offline");
             return;
         }
-        onItemClick(deviceBean, context);
+        Activity activity = (Activity) context;
+
+        onItemClick(deviceBean, activity);
     }
 
-    private static void onItemClick(DeviceBean devBean, Context context) {
+    private static void onItemClick(DeviceBean devBean, Activity context) {
         if (devBean == null) {
+            Log.d("results","devBean is null");
+
             return;
         }
         if (devBean.getProductId().equals("4eAeY1i5sUPJ8m8d")) {
+            Log.d("results","4eAeY1i5sUPJ8m8d");
+
 //            Intent intent = new Intent(mActivity, SwitchActivity.class);
 //            intent.putExtra(SwitchActivity.INTENT_DEVID, devBean.getDevId());
 //            mActivity.startActivity(intent);
@@ -44,7 +53,9 @@ public class Tuya_methods_on_device_item_click {
 
     }
 
-    private static void gotoDeviceCommonActivity(DeviceBean devBean, Context context) {
+    private static void gotoDeviceCommonActivity(DeviceBean devBean, Activity context) {
+        Log.d("results","gotoDeviceCommonActivity called");
+
         SharedPreferences prefs = context.getSharedPreferences("home_id", MODE_PRIVATE);
         Long name = prefs.getLong("home", 0);
         gotoCameraPanel(context, name, devBean);
@@ -63,15 +74,21 @@ public class Tuya_methods_on_device_item_click {
         });
     }
 
-    private static void gotoCameraPanel(Context context, long homeId, DeviceBean devBean) {
+    private static void gotoCameraPanel(Activity context, long homeId, DeviceBean devBean) {
+        Log.d("results","gotoCameraPanel called");
+
+        Log.d("results",Long.toString(homeId));
 
         if (null == devBean || null == devBean.getProductBean()) {
             return;
         }
+        Log.d("results",devBean.getProductBean().getUiInfo().getType());
         //判断是什么面板
         if ("RN".equals(devBean.getProductBean().getUiInfo().getType())) {
+            Log.d("results","RN trigerred");
+
             if (context instanceof Activity) {
-                gotoRNCameraPanel((Activity) context, homeId, devBean.getDevId());
+                gotoRNCameraPanel( context, homeId, devBean.getDevId());
             }
         } else if ("NA".equals(devBean.getProductBean().getUiInfo().getType())) {
             if (context instanceof Activity) {
@@ -82,7 +99,7 @@ public class Tuya_methods_on_device_item_click {
 
     private static void gotoNativeCameraPanel(Context context, long homeId, String deviceId) {
         TuyaCameraPanelSDK.setCurrentHomeId(homeId);
-        Log.d("Results", "Activity_Trigerred");
+        Log.d("results", "Activity_Trigerred");
 
         //方式一
         Bundle bundle = new Bundle();
@@ -93,23 +110,28 @@ public class Tuya_methods_on_device_item_click {
     }
 
     private static void gotoRNCameraPanel(Activity context, long homeId, String deviceId) {
-        Log.d("Results", "callback_trigerred");
+        Log.d("results", "gotoRNCameraPanel trigerred");
         TuyaCameraPanelSDK.setCurrentHomeId(homeId);
         TuyaPanelSDK.getPanelInstance().gotoPanelViewControllerWithDevice(context, homeId, deviceId, new ITuyaPanelLoadCallback() {
             @Override
             public void onStart(String s) {
+                panel_interface.panel_onstart(s);
             }
 
             @Override
             public void onError(String s, int i, String s1) {
+                panel_interface.panel_onerror(s,i,s1);
+
             }
 
             @Override
             public void onSuccess(String s) {
+                panel_interface.panel_onSuccess(s);
             }
 
             @Override
             public void onProgress(String s, int i) {
+                panel_interface.panel_onProgress(s,i);
             }
         });
     }

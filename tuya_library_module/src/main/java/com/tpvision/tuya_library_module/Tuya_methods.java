@@ -4,15 +4,11 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
-import com.tuya.smart.android.base.TuyaSmartSdk;
-import com.tuya.smart.android.common.utils.L;
 import com.tuya.smart.android.network.TuyaSmartNetWork;
 import com.tuya.smart.android.panel.TuyaPanelSDK;
 import com.tuya.smart.android.panel.api.ITuyaPanelLoadCallback;
@@ -37,14 +33,10 @@ import com.tuya.smart.sdk.api.ITuyaActivator;
 import com.tuya.smart.sdk.api.ITuyaActivatorGetToken;
 import com.tuya.smart.sdk.api.ITuyaSmartActivatorListener;
 import com.tuya.smart.sdk.bean.DeviceBean;
-import com.tuya.smart.sdk.enums.ActivatorEZStepCode;
 import com.tuya.smart.wrapper.api.TuyaWrapper;
-
-import org.cybergarage.upnp.device.ST;
 
 import java.util.List;
 
-import static android.content.Context.MODE_PRIVATE;
 import static com.tuya.smart.camera.utils.IntentUtils.startActivity;
 import static com.tuya.smart.sdk.enums.ActivatorModelEnum.TY_EZ;
 
@@ -53,7 +45,7 @@ public class Tuya_methods {
     private static Email_register email_register_callback;
     private static IFamilyAddModel iFamilyAddModel;
     private static Phone_register phone_register_callback;
-    private static  Code_valid_Phone_or_Email code_valid_phone_or_email;
+    private static Code_valid_Phone_or_Email code_valid_phone_or_email;
     private static Query_list query_list;
     private HomeBean currentHomeBean;
     static String userId;
